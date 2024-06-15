@@ -1,7 +1,8 @@
-pool: MyAgentPool
-
 trigger:
 - main
+
+variables:
+- buildConfiguration: 'Release'
 
 pool:
 - vmImage: ububtu-latest
@@ -11,9 +12,8 @@ steps:
   inputs:
     command: 'restore'
     feedsToUse: 'select'
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
