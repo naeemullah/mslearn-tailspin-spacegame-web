@@ -2,10 +2,10 @@ trigger:
 - main
 
 variables:
-- buildConfiguration: 'Release'
+  buildConfiguration: 'Release'
 
 pool:
-- vmImage: ububtu-latest
+  vmImage: ububtu-latest
 
 steps:
 - task: DotNetCoreCLI@2
